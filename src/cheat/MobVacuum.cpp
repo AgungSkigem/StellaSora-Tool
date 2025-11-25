@@ -10,6 +10,7 @@ namespace cheat::feature
 
 	MobVacuum& MobVacuum::GetInstance()
 	{
+		DbgMsg("[Feature] MobVacuum: executed");
 		static MobVacuum instance;
 		return instance;
 	}
