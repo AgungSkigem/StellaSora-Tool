@@ -13,6 +13,11 @@
 #include "cheat/StatModifier.h"
 
 #include "cheat/misc/About.h"
+#include "debug.h"
+// di awal fungsi inisialisasi:
+
+InitDebugConsole();
+DbgMsg("[StellaSora] Main init started");
 
 void OpenConsole()
 {
