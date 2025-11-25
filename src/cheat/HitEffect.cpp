@@ -1,6 +1,7 @@
 #include <pch.h>
 #include <appdata/helpers.h>
 #include "HitEffect.h"
+#include "debug.h"
 
 namespace cheat::feature
 {
@@ -12,6 +13,7 @@ namespace cheat::feature
 
 	HitEffect& HitEffect::GetInstance()
 	{
+		DbgMsg("[Feature] HitEffect: executed");
 		static HitEffect instance;
 		return instance;
 	}
