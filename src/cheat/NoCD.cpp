@@ -1,5 +1,6 @@
 #include <pch.h>
 #include "NoCD.h"
+#include "debug.h"
 
 namespace cheat::feature
 {
@@ -50,12 +51,14 @@ namespace cheat::feature
 	}
 
 	static void PlayerSkillCd_ResetUseInterval_Hook(app::PlayerSkillCd* __this, int32_t skillId, MethodInfo* method) {
+		DbgMsg("[Feature] NoCooldown: executed");
 		NoCD& noCD = NoCD::GetInstance();
 		if (noCD.f_NoCooldown) return;
 		return CALL_ORIGIN(PlayerSkillCd_ResetUseInterval_Hook, __this, skillId, method);
 	}
 
 	static void SkillInfo_set_currentEnergy_Hook(app::SkillInfo* __this, app::FP value, MethodInfo* method) {
+		DbgMsg("[Feature] UnlimitedEnergy: executed");
 		NoCD& noCD = NoCD::GetInstance();
 		if (noCD.f_UnlimitedEnergy) {
 			int32_t energy = app::SkillInfo_get_totalEnergy(__this, nullptr);
