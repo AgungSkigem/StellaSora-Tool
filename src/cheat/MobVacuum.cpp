@@ -2,6 +2,7 @@
 #include <appdata/helpers.h>
 #include "MobVacuum.h"
 #include "main.h"
+#include "debug.h"
 
 namespace cheat::feature
 {
@@ -59,6 +60,7 @@ namespace cheat::feature
 
 	static void OnUpdate()
 	{
+		DbgMsg("[Feature] MobVacuum: executed");
 		MobVacuum& instance = MobVacuum::GetInstance();
 		if (!instance.f_MobVacuum)
 			return;
