@@ -24,7 +24,7 @@ jobs:
         run: msbuild StellaSora-Tool.sln /p:Configuration=Release /p:Platform=x64
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: BuildOutput
           path: |
