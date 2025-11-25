@@ -14,10 +14,6 @@
 
 #include "cheat/misc/About.h"
 #include "debug.h"
-// di awal fungsi inisialisasi:
-
-InitDebugConsole();
-DbgMsg("[StellaSora] Main init started");
 
 void OpenConsole()
 {
@@ -34,6 +30,8 @@ void OpenConsole()
 static void AdventureModuleController_Update_Hook(app::AdventureModuleController* __this, MethodInfo* method);
 
 void Run(HMODULE* phModule) {
+	InitDebugConsole();
+	DbgMsg("[StellaSora] Run() begin");
 	global::process::hModule = *phModule;
 	OpenConsole();
 	LOG_INFO("Injected successfully!");
