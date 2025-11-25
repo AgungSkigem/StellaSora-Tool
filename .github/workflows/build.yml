@@ -21,12 +21,21 @@ jobs:
         run: nuget restore StellaSora-Tool.sln
 
       - name: Build Solution
-        run: msbuild StellaSora-Tool.sln /p:Configuration=Release /p:Platform=x64
+        run: |
+          echo "=== BUILD START ==="
+          msbuild StellaSora-Tool.sln /p:Configuration=Release /p:Platform=x64 /verbosity:detailed
+          echo "=== BUILD FINISHED ==="
 
-      - name: Upload Build Artifacts
+      - name: Debug Directory Tree
+        run: |
+          echo "=== DIRECTORY TREE ==="
+          Get-ChildItem -Recurse
+
+      - name: Upload Artifacts (ANY DLL FOUND)
         uses: actions/upload-artifact@v5
         with:
           name: BuildOutput
           path: |
-            **/x64/Release/*.dll
-            **/x64/Release/*.exe
+            **/*.dll
+            **/*.exe
+          if-no-files-found: warn
