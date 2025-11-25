@@ -20,13 +20,11 @@ namespace cheat::feature
 	}
 
 	const FeatureGUIInfo& InstantBreak::GetGUIInfo() const {
-		DbgMsg("[Feature] InstantBreak: executed2");
 		const static FeatureGUIInfo info { "", "Player", false };
 		return info;
 	}
 
 	void InstantBreak::DrawMain() {
-		DbgMsg("[Feature] InstantBreak: executed3");
 		ImGui::Checkbox("Instant Break", &f_InstantBreak);
 	}
 
