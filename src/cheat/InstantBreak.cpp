@@ -8,7 +8,7 @@ namespace cheat::feature
 	static bool MonsterToughnessInfo_DamageToToughness_Hook(app::MonsterToughnessInfo* __this, app::AdventureActor* from, int32_t damage, app::IList_1_System_Int32_* hitDamageTag, MethodInfo* method);
 
 	InstantBreak& InstantBreak::GetInstance() {
-		DbgMsg("[Feature] InstantBreak: executed");
+		DbgMsg("[Feature] InstantBreak: executed1");
 		static InstantBreak instance;
 		return instance;
 	}
@@ -20,13 +20,13 @@ namespace cheat::feature
 	}
 
 	const FeatureGUIInfo& InstantBreak::GetGUIInfo() const {
-		DbgMsg("[Feature] InstantBreak: executed");
+		DbgMsg("[Feature] InstantBreak: executed2");
 		const static FeatureGUIInfo info { "", "Player", false };
 		return info;
 	}
 
 	void InstantBreak::DrawMain() {
-		DbgMsg("[Feature] InstantBreak: executed");
+		DbgMsg("[Feature] InstantBreak: executed3");
 		ImGui::Checkbox("Instant Break", &f_InstantBreak);
 	}
 
@@ -35,7 +35,7 @@ namespace cheat::feature
 		InstantBreak& instance = InstantBreak::GetInstance();
 		if (instance.f_InstantBreak)
 		{
-			DbgMsg("[Feature] InstantBreak: executed");
+			DbgMsg("[Feature] InstantBreak: executed4");
 			auto toughness = app::SpecialAttributeList_GetAttributeValue(__this->fields.specialAttributeList, app::GameEnum_specialAttributeType__Enum::TOUGHNESS_V, nullptr);
 			auto fp = app::iFP_get_Value(&toughness, nullptr);
 			auto realValue = HIDWORD(fp._serializedValue);
